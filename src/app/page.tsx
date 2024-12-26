@@ -1,100 +1,192 @@
-import Image from "next/image";
+'use client'
+import React, { useState } from 'react';
+import { ArrowLeft, CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
+import NavigationMenu from '@/components/NavigationMenu';
+import FAQPage from '@/components/FAQPage';
+import AboutPage from '@/components/AboutPage';
+import Image from 'next/image';
+import paybackLogo from '@/assets/payback-logo.png';
+import goldSack from '@/assets/goldsack-2.PNG';
 
-export default function Home() {
+export default function PaybackWebsite() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/972525389669', '_blank');	
+  };
+
+  const handleNavigation = (pageId: string) => {
+    setCurrentPage(pageId);
+    window.scrollTo(0, 0);
+  };
+
+  const renderContent = () => {
+    switch (currentPage) {
+      case 'about':
+        return <AboutPage />;
+      case 'faq':
+        return <FAQPage />;
+      default:
+        return (
+          <>
+            {/* Hero Section */}
+            <section className="bg-[#6b61b1] text-white px-4 py-8">
+              <div className="max-w-3xl mx-auto mr-16">
+                <h2 className="text-[#ededed] text-2xl font-bold mb-4">החזר מס בקליק</h2>
+                <p className="text-lg mb-6">בדקו כמה מגיע לכם תוך 2 דקות</p>
+                <button 
+                  onClick={openWhatsApp}
+                  className="bg-slate-100 text-[#6b61b1] px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors"
+                >
+                  לבדיקת זכאות
+                </button>
+              </div>
+            </section>
+
+            {/* Process Steps */}
+            <section className="px-4 py-8 bg-[#f5f5ff]">
+              <div className="max-w-3xl mx-auto mr-16">
+                <h3 className="text-[#47646f] text-xl font-bold mb-6">איך זה עובד?</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <FileText className="w-6 h-6 text-[#6b61b1]" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#47646f] font-bold mb-1">1. ממלאים טופס קצר</h4>
+                      <p className="text-gray-600">ממלאים טופס קצר עם הפרטים הבסיסיים שלכם</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <Calculator className="w-6 h-6 text-[#6b61b1]" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#47646f] font-bold mb-1">2. אנו בודקים זכאות</h4>
+                      <p className="text-gray-600">המערכת בודקת את זכאותכם להחזר מס</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <CheckCircle className="w-6 h-6 text-[#6b61b1]" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#47646f] font-bold mb-1">3. אנו מטפלים בתהליך</h4>
+                      <p className="text-gray-600">אנחנו מטפלים בכל התהליך מול רשות המיסים</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <Clock className="w-6 h-6 text-[#6b61b1]" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#47646f] font-bold mb-1">4. אתם מקבלים החזר</h4>
+                      <p className="text-gray-600">מקבלים את הכסף ישירות לחשבון הבנק</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="px-4 py-8 bg-[#f5f5ff]">
+              <div className="max-w-3xl mx-auto mr-16">
+                <h3 className="text-[#47646f] text-xl font-bold mb-4">מוכנים להתחיל?</h3>
+                <p className="text-gray-600 mb-6">תהליך הבדיקה אורך כ-2 דקות</p>
+                <button 
+                  onClick={openWhatsApp}
+                  className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors"
+                >
+                  לבדיקת זכאות חינם בוואטסאפ
+                </button>
+              </div>
+            </section>
+
+            {/* Benefits */}
+            <section className="bg-[#e2e7fa] px-4 py-8">
+              <div className="max-w-3xl mx-auto mr-16">
+                <h3 className="text-[#47646f] text-xl font-bold mb-6">למה כדאי לבחור ב-Payback?</h3>
+                <div className="space-y-4">
+                  <div className="bg-[#f5f5ff] p-4 rounded-lg shadow-sm">
+                    <h4 className="text-[#47646f] font-bold mb-2">✓ תהליך דיגיטלי קל ומהיר</h4>
+                    <p className="text-gray-600">הכל נעשה באופן מקוון, ללא צורך בניירת</p>
+                  </div>
+                  <div className="bg-[#f5f5ff] p-4 rounded-lg shadow-sm">
+                    <h4 className="text-[#47646f] font-bold mb-2">✓ הבירוקרטיה עלינו</h4>
+                    <p className="text-gray-600">המומחים של Payback מטפלים בבירוקרטיה בשבילך</p>
+                  </div>
+                  <div className="bg-[#f5f5ff] p-4 rounded-lg shadow-sm">
+                    <h4 className="text-[#47646f] font-bold mb-2">✓ אלפי לקוחות מרוצים</h4>
+                    <p className="text-gray-600">אלפי ישראלים כבר קיבלו החזרי מס</p>
+                  </div>
+                  <div className="bg-[#f5f5ff] p-4 rounded-lg shadow-sm">
+                    <h4 className="text-[#47646f] font-bold mb-2">✓ ללא תשלום מראש</h4>
+                    <p className="text-gray-600">משלמים רק אם מקבלים החזר</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        );
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="min-h-screen bg-[#f5f5ff] font-sans" dir="rtl">
+      {/* Header */}
+      <header className="bg-[#e2e7fa] shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-right">
+            <div className="w-64 flex justify-between items-center">
+              <div className="flex flex-col">
+                <h1 className="text-[#47646f] text-7xl font-bold tracking-wide">PAYBACK</h1>
+                <p className="text-[#47646f] text-[24px] tracking-wide">מחזירים את הכסף שלך בקליק</p>
+              </div>
+              <Image
+                src={goldSack}
+                alt="Gold Sack"
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+            </div>
+            <NavigationMenu 
+              currentPage={currentPage}
+              onNavigate={handleNavigation}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          {currentPage === 'home' && (
+            <div className="mt-4 text-right">
+              <p className="text-gray-600 font-medium">4 מכל 5 שכירים זכאים להחזר של אלפי שקלים. ואתם?</p>
+              <p className="text-gray-800 mt-2 text-xl">קבלו את המס שמגיע לכם בחזרה</p>
+            </div>
+          )}
         </div>
+      </header>
+
+      {/* Main Content */}
+      <main>
+        {renderContent()}
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white px-4 py-8">
+        <div className="mb-6">
+          <button 
+            onClick={openWhatsApp}
+            className="flex items-center justify-center w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors gap-2"
+          >
+            <MessageCircle className="w-5 h-5" />
+            לשיחה עם נציג בוואטסאפ
+          </button>
+        </div>
+        <div className="text-sm text-gray-400 text-center">
+          <p>© Payback 2021 מבית סנדמן שרותים פיננסיים</p>
+        </div>
       </footer>
     </div>
   );
