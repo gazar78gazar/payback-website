@@ -140,7 +140,7 @@ export default function PaybackWebsite() {
       <header className="bg-[#e2e7fa] shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-right">
-            <div className="w-288 flex items-center" pr-16>
+            <div className="w-288 flex items-center" >
               <div className="flex flex-col">
                 <h1 className="text-[#47646f] text-7xl font-bold tracking-wide">PAYBACK</h1>
                 <p className="text-[#47646f] text-[24px] tracking-wide">מחזירים את הכסף שלך בקליק</p>
