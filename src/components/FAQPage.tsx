@@ -40,8 +40,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
 };
 
 const FAQPage = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
+const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqs = [
     {
       question: "מהו החזר מס?",
@@ -96,7 +95,7 @@ const FAQPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#f5f5ff]">
       <div className="container mx-auto py-12 px-4">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-6 md:p-8">
           <h1 className="text-3xl font-bold mb-8 text-right text-[#47646f]">שאלות נפוצות</h1>

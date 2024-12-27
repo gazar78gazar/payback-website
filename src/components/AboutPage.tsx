@@ -34,7 +34,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+    <div className="min-h-screen bg-[#f5f5ff]" dir="rtl">
       <div className="container mx-auto py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
