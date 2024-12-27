@@ -6,7 +6,7 @@ import FAQPage from '@/components/FAQPage';
 import AboutPage from '@/components/AboutPage';
 import Image from 'next/image';
 import paybackLogo from '@/assets/payback-logo.png';
-import goldSack from '@/assets/goldsack-2.PNG';
+import goldSack from '@/assets/goldsack-2.png';
 
 export default function PaybackWebsite() {
   const [currentPage, setCurrentPage] = useState('home');
