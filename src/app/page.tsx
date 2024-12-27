@@ -1,11 +1,10 @@
 'use client'
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
+import { CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
 import NavigationMenu from '@/components/NavigationMenu';
 import FAQPage from '@/components/FAQPage';
 import AboutPage from '@/components/AboutPage';
 import Image from 'next/image';
-import paybackLogo from '@/assets/payback-logo.png';
 import goldSack from '@/assets/goldsack-2.png';
 
 export default function PaybackWebsite() {
@@ -141,7 +140,7 @@ export default function PaybackWebsite() {
       <header className="bg-[#e2e7fa] shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-right">
-            <div className="w-64 flex justify-between items-center">
+            <div className="w-288 flex items-center" pr-16>
               <div className="flex flex-col">
                 <h1 className="text-[#47646f] text-7xl font-bold tracking-wide">PAYBACK</h1>
                 <p className="text-[#47646f] text-[24px] tracking-wide">מחזירים את הכסף שלך בקליק</p>

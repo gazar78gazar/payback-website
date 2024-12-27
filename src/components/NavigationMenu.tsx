@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+//import { Menu, X } from 'lucide-react';
 
 interface NavigationMenuProps {
   currentPage: string;
@@ -18,7 +18,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ currentPage, onNavigate
 
   const handleNavigation = (pageId: string) => {
     onNavigate(pageId);
-    setIsOpen(false);
+   // setIsOpen(false);
   };
 
   return (
